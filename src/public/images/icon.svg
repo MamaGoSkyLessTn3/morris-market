@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138.9 131.5">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #39b54a;
+      }
+
+      .cls-1, .cls-2 {
+        font-family: ArialRoundedMTBold, 'Arial Rounded MT Bold';
+        font-size: 122px;
+      }
+
+      .cls-2 {
+        fill: #009245;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(0 105.4)"><tspan x="0" y="0">M</tspan></text>
+  <text class="cls-1" transform="translate(34.5 105.8)"><tspan x="0" y="0">M</tspan></text>
+</svg>
