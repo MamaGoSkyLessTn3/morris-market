@@ -1,31 +1,53 @@
-import { Product } from '@/components/shared/ui'
+'use client'
+import { Product, ProductList } from '@/components/shared/ui'
 import Title from '@/components/ui/title'
-import { products as items } from '@/public/constants'
+import React, { useEffect, useRef } from 'react'
+import { useIntersection } from 'react-use'
 
-import React from 'react'
+function Products({ items }) {
+	const useIntersectionRef = useRef()
 
-function Products() {
+	const Intersection = useIntersection(useIntersectionRef, {
+		root: null,
+		rootMargin: '0px',
+		threshold: 0.4,
+	})
+
+	{
+		useEffect(() => {
+			if (Intersection?.isIntersecting) {
+				console.log(item.id)
+			}
+		}, [Intersection?.isIntersecting, items])
+	}
+
 	return (
 		<>
-			<Title
-				size='large'
-				color='black'
-				className=' font-semibold my-4 text-foreground'
-			>
-				Завтраки
-			</Title>
-			<div className='flex gap-10 justify-center md:justify-start md:gap-5 flex-wrap'>
-				{items.map(item => (
-					<Product
+			{items.map(item => (
+				<>
+					<Title
+						id={item.id}
 						key={item.id}
-						name={item.name}
-						imageURL={item.imageURL}
-						price={item.price}
-						shortDiscription={item.shortDiscription}
-						gram={item.gram}
-					/>
-				))}
-			</div>
+						size='large'
+						color='black'
+						className=' font-semibold my-4 text-foreground'
+					>
+						{item.name}
+					</Title>
+					<div className='flex gap-10 justify-center md:justify-start md:gap-5 flex-wrap'>
+						{item.products.map(product => (
+							<Product
+								key={product.id}
+								name={product.name}
+								shortDiscription={product.description}
+								gram={product.gram}
+								price={product.price}
+								imageURL={product.imageURL}
+							/>
+						))}
+					</div>
+				</>
+			))}
 		</>
 	)
 }

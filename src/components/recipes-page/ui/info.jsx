@@ -27,8 +27,8 @@ data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMC
 				/>
 				<div className='flex flex-col gap-3 '>
 					<div className='flex flex-row flex-wrap gap-3 '>
-						{tags.map(tag => (
-							<Tags key={tag.id} name={tag.name} />
+						{tags.map((tag, i) => (
+							<Tags key={i} name={tag} />
 						))}
 					</div>
 					<Title
@@ -39,8 +39,8 @@ data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMC
 						Ингридиенты <span className='text-gray-400'>на 4 порции</span>
 					</Title>
 					<div className='flex flex-col gap-2'>
-						{ingredients.map(ingredient => (
-							<IngredientItem key={ingredient.id} name={ingredient.name} />
+						{ingredients.map((ingredient, i) => (
+							<IngredientItem key={i} name={ingredient} />
 						))}
 					</div>
 				</div>

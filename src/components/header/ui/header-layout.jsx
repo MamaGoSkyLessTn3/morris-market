@@ -25,15 +25,15 @@ function HeaderLayout({ searchBar, themeButton, signUpButton, cartButton }) {
 	return (
 		<header
 			className={clsx(
-				!isMenuOpen && 'rounded-bl-xl rounded-br-xl',
-				'bg-background flex justify-between items-center gap-1 fixed top-0 left-0 right-0 md:relative px-4'
+				!isMenuOpen && 'rounded-bl-3xl rounded-br-3xl',
+				'bg-background flex justify-between items-center gap-1 z-30 fixed top-0 left-0 right-0 md:relative px-4'
 			)}
 		>
 			<Link href='/'>
 				<Image
 					priority={true}
 					src={logo}
-					className='m-6'
+					className='m-6 md:block hidden'
 					width={196}
 					height={70}
 					alt='logo'
@@ -57,7 +57,7 @@ function HeaderLayout({ searchBar, themeButton, signUpButton, cartButton }) {
 
 			{isMenuOpen && (
 				<motion.div
-					className='absolute top-16 left-0 right-0 bg-background shadow-lg rounded-lg p-4 flex flex-col items-center space-y-4 md:hidden'
+					className='absolute top-[45px] left-0 right-0 bg-background shadow-lg rounded-lg p-4 flex flex-col items-center space-y-4 md:hidden'
 					initial='hidden'
 					animate='visible'
 					exit='hidden'

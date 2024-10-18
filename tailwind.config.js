@@ -17,6 +17,7 @@ module.exports = {
 				rWrapper: 'var(--r-wrapper)',
 				wrapper: 'var(--wrapper)',
 				search: 'var(--search)',
+				hover: 'var(--hover)',
 				card: {
 					DEFAULT: 'var(--card)',
 					foreground: 'var(--card-foreground)',
@@ -63,5 +64,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require('tailwindcss-animate'), require('@tailwindcss/line-clamp')],
+	plugins: [require('tailwindcss-animate')],
 }

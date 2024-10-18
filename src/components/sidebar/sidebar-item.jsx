@@ -7,17 +7,16 @@ function SideBarItem({ src, name, className }) {
 		<div
 			className={clsx(
 				className,
-				'text-lg font-semibold flex md:flex-row flex-col   align-middle items-center gap-2 hover:text-emerald-600  transition-colors  cursor-pointer'
+				'text-lg pl-3 font-semibold flex md:flex-row flex-col   align-middle items-center gap-2 hover:bg-emerald-500/30 rounded-2xl  transition-colors  cursor-pointer'
 			)}
 		>
-			{/* Images form samokat */}
-			{/* <Image
+			<Image
 				src={src}
 				alt={name}
 				width={32}
 				height={32}
 				className='rounded-lg w-8 h-8'
-			/> */}
+			/>
 			<a>{name}</a>
 		</div>
 	)

@@ -23,7 +23,7 @@ function ThemeButton() {
 	return (
 		<div
 			onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-			className='flex hover:text-emerald-500 justify-center items-center cursor-pointer w-10 h-10 transition-colors duration-300'
+			className='flex hover:text-emerald-500 justify-center select-none items-center cursor-pointer w-10 h-10 transition-colors duration-300'
 		>
 			{resolvedTheme === 'dark' ? (
 				<Sun className='transition-transform duration-300' size={25} />

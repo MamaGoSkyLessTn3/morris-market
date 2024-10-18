@@ -1,7 +1,10 @@
 'use client'
+import { Api } from '@/services(unused)/api-client'
 import clsx from 'clsx'
 import { Search } from 'lucide-react'
-import React, { useRef, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import React, { useEffect, useRef, useState } from 'react'
 import { useClickAway } from 'react-use'
 
 function SearchBar({ className }) {
@@ -11,9 +14,8 @@ function SearchBar({ className }) {
 
 	return (
 		<>
-			{/* Фоновое затемнение при фокусе */}
 			{focused && (
-				<div className='fixed top-0 left-0 bottom-0 right-0 bg-black/50 backdrop-blur-sm z-20' />
+				<div className='fixed top-0 left-0 bottom-0 right-0 bg-black/50  z-20' />
 			)}
 
 			<div
@@ -30,17 +32,6 @@ function SearchBar({ className }) {
 					placeholder='Найти в маркете :)'
 					onFocus={() => setFocused(true)}
 				/>
-				<div
-					className={clsx(
-						'absolute w-full rounded-xl py-2 shadow-md transition-all duration-300 z-40 bg-background',
-						focused
-							? 'visible opacity-100 top-12'
-							: 'invisible opacity-0 top-14'
-					)}
-				>
-					{/* 		после апи рендер поискка */}
-					123
-				</div>
 			</div>
 		</>
 	)

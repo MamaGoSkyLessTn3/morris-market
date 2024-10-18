@@ -7,9 +7,8 @@ import {
 	CarouselPrevious,
 } from '@/components/ui/carousel'
 import { Product } from '@/components/shared/ui'
-import { products } from '@/public/constants'
 
-export function ProductsCarousel() {
+export function ProductsCarousel({ products }) {
 	return (
 		<Carousel
 			opts={{
@@ -18,7 +17,7 @@ export function ProductsCarousel() {
 			className='flex justify-center flex-row align-middle items-center '
 		>
 			<CarouselContent>
-				{products.slice(0, 5).map(product => (
+				{products.map(product => (
 					<CarouselItem key={product.id} className='md:basis-1/2 lg:basis-1/3'>
 						<Product
 							name={product.name}

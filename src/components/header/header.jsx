@@ -1,10 +1,9 @@
 'use client'
 import React, { useState } from 'react'
-import SearchBar from './ui/searchbar'
+import SearchBar from './ui/search-bar'
 import HeaderLauout from './ui/header-layout'
 import { Button } from '../ui/button'
 import ThemeButton from './ui/theme-switcher'
-import RegistrModal from './ui/registr-modal'
 import { Cart, CartButton } from '../cart'
 
 function Header() {
@@ -28,7 +27,6 @@ function Header() {
 				}
 				cartButton={<CartButton onClick={() => setIsOpenCart(true)} />}
 			/>
-			<RegistrModal isOpen={isOpenModal} setIsOpen={setIsOpenModal} />
 			<Cart isOpen={isOpenCart} setIsOpen={setIsOpenCart} />
 		</>
 	)

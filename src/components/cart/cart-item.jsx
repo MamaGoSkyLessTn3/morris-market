@@ -25,7 +25,7 @@ function CartItem({ name, imageURL, gram, price, className }) {
 				<div className='flex justify-between'>
 					<div className='flex flex-col'>
 						<p className='text-foreground font-semibold'>{name}</p>
-						<p className='text-foreground text-sm'>{gram}</p>
+						<p className='text-foreground text-sm'>{gram} г</p>
 					</div>
 					<div className='cursor-pointer'>
 						<X className='text-foreground' />

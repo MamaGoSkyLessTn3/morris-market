@@ -7,7 +7,7 @@ import {
 	BreadcrumbSeparator,
 } from '../../ui/breadcrumb'
 
-function ReceiptBreadCrumb() {
+function RecipeBreadCrumb({ name }) {
 	return (
 		<Breadcrumb>
 			<BreadcrumbList>
@@ -16,13 +16,11 @@ function ReceiptBreadCrumb() {
 				</BreadcrumbItem>
 				<BreadcrumbSeparator />
 				<BreadcrumbItem>
-					<BreadcrumbLink href='/receipts'>
-						Cырники на рисовой муке
-					</BreadcrumbLink>
+					<BreadcrumbLink href='/receipts'>{name}</BreadcrumbLink>
 				</BreadcrumbItem>
 			</BreadcrumbList>
 		</Breadcrumb>
 	)
 }
 
-export default ReceiptBreadCrumb
+export default RecipeBreadCrumb

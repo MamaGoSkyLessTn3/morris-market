@@ -3,7 +3,7 @@ import { Button } from '../ui/button'
 import Title from '../ui/title'
 import { X } from 'lucide-react'
 import CartItem from './cart-item'
-import { products } from '@/public/constants'
+import { products } from '../../../prisma/data'
 
 function Cart({ isOpen, setIsOpen, totalAmount = 332 }) {
 	const cartVariants = {
@@ -16,7 +16,7 @@ function Cart({ isOpen, setIsOpen, totalAmount = 332 }) {
 			},
 		},
 		closed: {
-			x: '100%',
+			x: '200%',
 			transition: {
 				type: 'spring',
 				stiffness: 400,
@@ -59,10 +59,10 @@ function Cart({ isOpen, setIsOpen, totalAmount = 332 }) {
 					)}
 				</div>
 
-				<div className='flex items-center align-middle flex-row justify-between'>
+				<div className='flex mt-4 items-center align-middle flex-row justify-between'>
 					<div className='flex flex-col justify-start'>
-						<p>Итого</p>
-						<h1>{totalAmount} ₽</h1>
+						<p className='text-sm'>Итого</p>
+						<h1 className='font-bold text-xl'>{totalAmount} ₽</h1>
 					</div>
 					<Button className=''>К оплате</Button>
 				</div>
