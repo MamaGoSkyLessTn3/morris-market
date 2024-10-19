@@ -15,7 +15,7 @@ function ThemeButton() {
 	if (!mounted) {
 		return (
 			<div className='w-10 flex justify-center items-center align-middle h-10'>
-				<Loader />
+				<Loader className='w-[24px]' />
 			</div>
 		)
 	}

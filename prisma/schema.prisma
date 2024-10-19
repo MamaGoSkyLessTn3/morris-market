@@ -88,39 +88,55 @@ model RecipeProcess {
 
 model Cart {
   id          Int        @id @default(autoincrement())
-  userId      Int        @unique
-  totalAmount Int        @default(0)
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+
   user        User       @relation(fields: [userId], references: [id])
+  userId      Int        @unique
+
+  token       String
+  
+  totalAmount Int        @default(0)
+
   items       CartItem[]
   orders      Order[]
+  
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
 }
 
 model CartItem {
   id        Int      @id @default(autoincrement())
-  productId Int
-  cartId    Int
-  userId    Int
+
   quantity  Int
+  
+  cart      Cart     @relation(fields: [cartId], references: [id])
+  cartId    Int
+
+  product   Product  @relation(fields: [productId], references: [id])
+  productId Int
+
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  cart      Cart     @relation(fields: [cartId], references: [id])
-  product   Product  @relation(fields: [productId], references: [id])
-  user      User     @relation(fields: [userId], references: [id])
 }
 
 model Order {
   id          Int         @id @default(autoincrement())
-  userId      Int
-  cartId      Int
+ 
   status      OrderStatus @default(PENDING)
   totalAmount Int
   paymentId   String?
+
+  cart        Cart        @relation(fields: [cartId], references: [id])
+  cartId      Int
+  
+  user        User        @relation(fields: [userId], references: [id])
+  userId      Int
+  
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
-  cart        Cart        @relation(fields: [cartId], references: [id])
-  user        User        @relation(fields: [userId], references: [id])
+
 }
 
 model VerificationCode {

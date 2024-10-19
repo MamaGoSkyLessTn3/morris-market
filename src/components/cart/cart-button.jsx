@@ -1,22 +1,20 @@
 import { Button } from '@/components/ui/button'
-import { ShoppingCart } from 'lucide-react'
+import { ArrowRight, ShoppingCart } from 'lucide-react'
 import React from 'react'
 
-function CartButton({ cartCount = 2, onClick }) {
+function CartButton({ amountPrice = 2312, cartCount = 3 }) {
 	return (
-		<Button size='icon' onClick={onClick}>
-			<div className='flex justify-center items-center gap-2'>
-				<ShoppingCart size={20} />
+		<Button className='group relative flex items-center px-4 py-2 '>
+			<b>{amountPrice} ₽</b>
 
-				{cartCount ? (
-					<>
-						<div className='w-[2px] h-5 bg-white' />
-						<p className='font-semibold flex items-center align-middle justify-center text-lg'>
-							{cartCount}
-						</p>
-					</>
-				) : null}
+			<span className='h-full w-[1px] bg-white/30 mx-3' />
+
+			<div className='flex items-center gap-1 transition duration-300 group-hover:opacity-0'>
+				<ShoppingCart className='h-4 w-4 relative' strokeWidth={2} />
+				<b>{cartCount}</b>
 			</div>
+
+			<ArrowRight className='w-5 absolute right-5 transition-transform duration-200 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transform -translate-x-2' />
 		</Button>
 	)
 }

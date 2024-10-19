@@ -9,6 +9,7 @@ function ProductList({ items }) {
 		<>
 			{items.map(item => (
 				<Product
+					id={item.id}
 					key={item.id}
 					name={item.name}
 					imageURL={item.imageURL}

@@ -1,7 +1,8 @@
+import { cn } from '@/lib/utils'
 import React from 'react'
 
-function Loader() {
-	return <div className='loader'></div>
+function Loader({ className }) {
+	return <div className={cn('loader', className)}></div>
 }
 
 export default Loader

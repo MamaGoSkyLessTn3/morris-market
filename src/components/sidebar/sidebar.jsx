@@ -1,8 +1,5 @@
 import React from 'react'
-import Title from '../ui/title'
-import SideBarItem from './sidebar-item'
 import { prisma } from '../../../prisma/prisma-client'
-import { cn } from '@/lib/utils'
 import SideBarItemsList from './sidebar-items-list'
 
 async function SideBar() {

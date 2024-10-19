@@ -8,8 +8,9 @@ import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import useScrollToTopOnResize from '@/components/shared/hooks/use-scroll-to-top-on-resize'
+import { CartButton } from '@/components/cart'
 
-function HeaderLayout({ searchBar, themeButton, signUpButton, cartButton }) {
+function HeaderLayout({ searchBar, themeButton, signUpButton }) {
 	useScrollToTopOnResize(768)
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -52,7 +53,9 @@ function HeaderLayout({ searchBar, themeButton, signUpButton, cartButton }) {
 			<div className='hidden md:flex justify-center items-center gap-2'>
 				{themeButton}
 				{signUpButton}
-				{cartButton}
+				<div className='flex items-center gap-3'>
+					<CartButton />
+				</div>
 			</div>
 
 			{isMenuOpen && (

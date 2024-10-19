@@ -11,19 +11,19 @@ const nunito = Nunito({
 })
 
 export const metadata = {
-	title: 'Morris Market',
+	title: 'Моррис Маркет',
 	description: 'Best market in the world',
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, modal }) {
 	return (
 		<html lang='en' suppressContentEditableWarning>
 			<body className={nunito.variable}>
 				<Providers>
 					<PageLayout header={<Header />} sidebar={<SideBar />}>
 						{children}
+						{modal}
 					</PageLayout>
-					<div id='modals'></div>
 				</Providers>
 			</body>
 		</html>

@@ -10,27 +10,30 @@ export default function Product({
 	gram,
 	price,
 	imageURL,
+	id,
 }) {
-	capitalizeFirstLetter(name)
 	return (
 		<div className='flex flex-col'>
-			<Link href='/#' className='flex flex-col  '>
-				<Image
-					loading='lazy'
-					className='rounded-2xl bg-wrapper'
-					src={imageURL}
-					alt={name}
-					width={166}
-					height={166}
-					placeholder='blur'
-					blurDataURL='
+			<Link href={`/product/${id}`} className='flex flex-col'>
+				<div className='w-[166px] h-[166px] rounded-2xl bg-black flex items-center  justify-center'>
+					<Image
+						loading='lazy'
+						className='rounded-2xl'
+						src={imageURL}
+						alt={name}
+						width={166}
+						height={166}
+						placeholder='blur'
+						blurDataURL='
 data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNlZWVlZWUiIC8+PC9zdmc+
 '
-				/>
-				<div className='w-[166px]    flex flex-col gap-1'>
+					/>
+				</div>
+
+				<div className='w-[166px] flex flex-col gap-1'>
 					<Title
 						size='small'
-						className='font-semibold  line-clamp-1  text-foreground'
+						className='font-semibold line-clamp-1 text-foreground'
 						color='black'
 					>
 						{name}

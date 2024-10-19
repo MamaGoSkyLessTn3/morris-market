@@ -40,11 +40,6 @@ module.exports = {
 			imageURL:
 				'https://cm.samokat.ru/processed/l/product_card/8fd6c4b1-6904-45c5-9dd0-0eedd612af6a.jpg',
 		},
-		{
-			name: 'Мясо и рыба',
-			imageURL:
-				'https://cm.samokat.ru/processed/l/product_card/96f4f725-7c2f-45ad-abf5-2bf20f107377.jpg',
-		},
 	],
 
 	// Данные для сидинга рецептов ТРОГАТЬ НАхУЙ!
@@ -76,23 +71,6 @@ module.exports = {
 				'https://web-static.samokat.ru/public/images/recipes/domashnie-kotlety-cover.jpg',
 			tags: ['Ужин', 'Булат одбряет', 'Вкусно'],
 			ingredients: ['фарш', 'молоко', 'яйцо', 'чеснок'],
-			stepsAtAll: 5,
-		},
-		{
-			//3
-			name: 'Фаршированные перцы',
-			time: 60,
-			imageURL:
-				'https://web-static.samokat.ru/public/images/recipes/farshirovannye-pertsy-cover.jpg',
-			tags: ['Обед', 'Булат одбряет', 'Вкусно'],
-			ingredients: [
-				'фарш',
-				'перцы',
-				'рис',
-				'сливки 30-33%',
-				'томатная паста',
-				'чеснок',
-			],
 			stepsAtAll: 5,
 		},
 	],
@@ -158,47 +136,6 @@ module.exports = {
 				'https://web-static.samokat.ru/public/images/recipes/syrniki-na-risovoy-muke-step--4.jpg',
 			recipeId: 2,
 		},
-		{
-			step: 1,
-			description:
-				'Простой рецепт фаршированных перцев с томатной подливкой. Промойте перцы, срежьте у них верхушки и уберите сердцевину с семенами. Верхушки не выкидывайте! Они понадобятся при готовке',
-			imageURL:
-				'https://web-static.samokat.ru/public/images/recipes/farshirovannye-pertsy-step--1.jpg',
-			recipeId: 3,
-		},
-		{
-			step: 2,
-			description:
-				'Промытый рис высыпьте в кипящую подсоленную воду и варите 7 минут. Потом откиньте на дуршлаг. Пока рис варится, обжарьте лук на масле за 3 минуты. Добавьте зелень и жарьте ещё минуту',
-			imageURL:
-				'https://web-static.samokat.ru/public/images/recipes/farshirovannye-pertsy-step--2.jpg',
-			recipeId: 3,
-		},
-		{
-			step: 3,
-			description:
-				'Смешайте рис, фарш, зелень и лук, соль и перец. Нафаршируйте этой смесью перцы. Потом накройте их верхушками и положите в глубокую сковородку или кастрюлю',
-			imageURL:
-				'https://web-static.samokat.ru/public/images/recipes/farshirovannye-pertsy-step--3.jpg',
-
-			recipeId: 3,
-		},
-		{
-			step: 4,
-			description:
-				'Обжарьте чеснок на масле, добавьте томатную пасту. Влейте сливки, посолите и поперчите. Готовьте 7 минут на слабом огне, потом положите зелень. Это будет соус',
-			imageURL:
-				'https://web-static.samokat.ru/public/images/recipes/farshirovannye-pertsy-step--4.jpg',
-			recipeId: 3,
-		},
-		{
-			step: 5,
-			description:
-				'Залейте фаршированные перцы соусом и готовьте на среднем огне под крышкой 35 минут. Перед подачей дайте остыть в течение 10 минут',
-			imageURL:
-				'https://web-static.samokat.ru/public/images/recipes/farshirovannye-pertsy-step--5.jpg',
-			recipeId: 3,
-		},
 	],
 
 	// Данные для сидинга продуктов приготовления ТРОГАТЬ НАхУЙ!
@@ -234,26 +171,6 @@ module.exports = {
 		},
 		{
 			recipeId: 2,
-			productId: 8,
-		},
-		{
-			recipeId: 3,
-			productId: 4,
-		},
-		{
-			recipeId: 3,
-			productId: 5,
-		},
-		{
-			recipeId: 3,
-			productId: 9,
-		},
-		{
-			recipeId: 3,
-			productId: 6,
-		},
-		{
-			recipeId: 3,
 			productId: 8,
 		},
 	],
@@ -416,21 +333,6 @@ module.exports = {
 			carbohydrates: randomNumber(20, 35),
 			price: randomNumber(200, 400),
 			categoryId: 3, // ID категории "Напитки"
-		},
-		// Мясо и рыба
-		{
-			name: 'Филе цыплёнка',
-			description: 'Грудка хоп хоп белочек',
-			compound: 'Филе цыпленка-бройлера',
-			imageURL:
-				'https://cm.samokat.ru/processed/l/product_card/96f4f725-7c2f-45ad-abf5-2bf20f107377.jpg',
-			gram: 900,
-			kilocalories: randomNumber(80, 150),
-			protein: randomNumber(1, 3),
-			fats: randomNumber(0, 1),
-			carbohydrates: randomNumber(20, 35),
-			price: 470,
-			categoryId: 5, // ID категории "Напитки"
 		},
 	],
 }
