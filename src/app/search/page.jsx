@@ -6,13 +6,19 @@ import axios from 'axios'
 import { Loader, Product } from '@/components/shared/ui'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+
 function SearchPage() {
 	const { searched } = useSearch(state => state)
 	const [filteredProducts, setFilteredProducts] = useState([])
 	const [loading, setLoading] = useState(false)
+	const router = useRouter() // Получаем объект router
 
 	useEffect(() => {
-		if (searched) {
+		// Если searched пустой, перенаправляем на главную страницу
+		if (!searched) {
+			router.replace('/') // Меняем адрес на главную страницу
+		} else {
 			setLoading(true)
 
 			axios
@@ -25,16 +31,14 @@ function SearchPage() {
 					console.error(err)
 					setLoading(false)
 				})
-		} else {
-			setFilteredProducts([])
 		}
-	}, [searched])
+	}, [searched, router]) // Добавляем router в зависимости
 
 	return (
-		<div className='flex md:w-[80%]  rounded-2xl mt-3 custom-scrollbar  md:h-screen md:overflow-y-scroll flex-col'>
-			<div className=' h-full  w-full  text-foreground bg-background rounded-2xl p-8 '>
+		<div className='flex md:w-[80%] rounded-2xl mt-3 custom-scrollbar md:h-screen md:overflow-y-scroll flex-col'>
+			<div className='w-full text-foreground bg-background rounded-2xl mb-20 p-8'>
 				<Link href='/'>
-					<div className=' hover:bg-hover inline-block p-1 rounded-xl'>
+					<div className='hover:bg-hover inline-block p-1 rounded-xl'>
 						<ArrowLeft width={32} height={32} />
 					</div>
 				</Link>

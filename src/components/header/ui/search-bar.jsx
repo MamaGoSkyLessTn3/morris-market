@@ -24,11 +24,7 @@ function SearchBar({ className }) {
 			setSearched(query)
 			setQuery('')
 			if (query) {
-				if (searched) {
-					router.push(`/search?query=${encodeURIComponent(query)}`)
-				} else {
-					console.error('Данные о поиске не готовы')
-				}
+				router.push(`/search?query=${encodeURIComponent(query)}`)
 			}
 		}
 	}

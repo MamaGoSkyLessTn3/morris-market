@@ -1,9 +1,7 @@
-import { notFound } from 'next/navigation'
 import { prisma } from '../../../../../prisma/prisma-client'
-import ChooseProductModal from '@/components/shared/modals/choose-product-modal'
 import { getRandomCategoryId } from '@/components/shared/model/getRandomCategoryId'
 
-export default async function ProductModalPage({ params }) {
+export default async function ProductPage({ params }) {
 	//! ONRESIZE ADD
 	const { id } = params
 	const idNumber = Number(id)
@@ -13,10 +11,6 @@ export default async function ProductModalPage({ params }) {
 			id: idNumber,
 		},
 	})
-
-	if (!product) {
-		return notFound()
-	}
 
 	const randomCategoryId = await getRandomCategoryId()
 
@@ -30,9 +24,6 @@ export default async function ProductModalPage({ params }) {
 	})
 
 	return (
-		<ChooseProductModal
-			additionalProducts={additionalProducts}
-			product={product}
-		/>
+		<ProductPage product={product} additionalProducts={additionalProducts} />
 	)
 }

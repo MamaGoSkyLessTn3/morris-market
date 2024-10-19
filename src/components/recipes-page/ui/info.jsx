@@ -17,8 +17,8 @@ function Info({ name, imageURL, tags, ingredients }) {
 					className='rounded-xl'
 					src={imageURL}
 					alt={name}
-					width={300}
-					height={300}
+					width={350}
+					height={280}
 					loading='lazy'
 					placeholder='blur'
 					blurDataURL='

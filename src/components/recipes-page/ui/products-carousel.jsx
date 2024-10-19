@@ -20,6 +20,7 @@ export function ProductsCarousel({ products }) {
 				{products.map(product => (
 					<CarouselItem key={product.id} className='md:basis-1/2 lg:basis-1/3'>
 						<Product
+							id={product.id}
 							name={product.name}
 							shortDiscription={product.shortDiscription}
 							gram={product.gram}

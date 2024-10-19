@@ -13,7 +13,7 @@ export default function Product({
 	id,
 }) {
 	return (
-		<div className='flex flex-col'>
+		<div className='flex my-3 flex-col'>
 			<Link href={`/product/${id}`} className='flex flex-col'>
 				<div className='w-[166px] h-[166px] rounded-2xl bg-black flex items-center  justify-center'>
 					<Image

@@ -137,7 +137,7 @@ html {
 
 body {
 	background: var(--bg);
-	padding-inline: 5%;
+	padding-inline: 5% !important;
 	max-width: 1650px;
 	margin: auto;
 }
@@ -146,7 +146,7 @@ body {
 }
 @media screen and (max-width: 768px) {
 	body {
-		padding-inline: 0%;
+		padding-inline: 0% !important;
 	}
 	.header {
 		margin-inline: 0%;
