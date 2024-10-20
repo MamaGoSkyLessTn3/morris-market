@@ -11,15 +11,14 @@ async function MainPage() {
 			products: true,
 		},
 	})
-	const allProducts = categories.flatMap(category => category.products)
+	const initialProducts = await prisma.product.findMany({})
 
 	const recipes = await prisma.recipe.findMany({})
 	return (
 		<MainLayout
-			productsAll={allProducts}
 			recipes={<Recipes items={recipes} />}
 			categories={<CategoriesList categories={categories} />}
-			products={<ProductsAll products={allProducts} />}
+			products={<ProductsAll products={initialProducts} />}
 		/>
 	)
 }

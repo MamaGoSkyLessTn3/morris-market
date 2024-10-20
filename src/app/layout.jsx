@@ -3,6 +3,7 @@ import './globals.css'
 import { Providers } from './providers'
 import { Header } from '@/components/header'
 import { SideBar } from '@/components/sidebar'
+import { Container } from '@/components/shared/ui/container'
 
 const nunito = Nunito({
 	subsets: ['cyrillic'],
@@ -32,11 +33,13 @@ export default function RootLayout({ children, modal }) {
 function PageLayout({ header, children, sidebar }) {
 	return (
 		<>
-			{header}
-			<main className='flex justify-between gap-4 flex-col md:flex-row overflow-hidden '>
-				{sidebar}
-				{children}
-			</main>
+			<Container>
+				{header}
+				<main className='flex justify-between gap-4 flex-col md:flex-row overflow-hidden '>
+					{sidebar}
+					{children}
+				</main>
+			</Container>
 		</>
 	)
 }

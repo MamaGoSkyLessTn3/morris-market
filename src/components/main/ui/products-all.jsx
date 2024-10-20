@@ -1,11 +1,10 @@
 import { Product } from '@/components/shared/ui'
-import Title from '@/components/ui/title'
 
 function ProductsAll({ products }) {
 	return (
 		<>
 			<div className='flex gap-10 justify-center md:justify-start md:gap-5 flex-wrap'>
-				{products.length > 0 ? ( // Проверка наличия продуктов
+				{products?.length > 0 ? (
 					products.map(product => (
 						<Product
 							id={product.id}

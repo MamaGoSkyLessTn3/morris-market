@@ -1,4 +1,4 @@
-import { GetOtherRecipes } from '@/components/shared/model/rand-index'
+import { GetOtherRecipes } from '@/lib/rand-index'
 import { RecipeList } from '@/components/shared/ui'
 import React from 'react'
 

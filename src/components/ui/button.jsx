@@ -3,18 +3,19 @@ import { Slot } from '@radix-ui/react-slot'
 import { cva } from 'class-variance-authority'
 
 import { cn } from '@/lib/utils'
+import { Loader2 } from 'lucide-react'
 
 const buttonVariants = cva(
-	'   rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50',
+	' transform  active:translate-y-[1px] transition-transform duration-150 ease-in-out  rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50',
 	{
 		variants: {
 			variant: {
 				default:
 					'bg-emerald-600 text-white font-medium px-6 py-2 rounded-full hover:bg-emerald-700 transition-colors shadow-md',
 				outline:
-					'border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground',
-				secondary:
-					'bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80',
+					'border border-emerald-600 px-3 py-1 rounded-3xl  bg-background shadow-sm hover:bg-emerald-600 ',
+				colored:
+					'border border-emerald-600 px-3 py-1 rounded-3xl text-emerald-600  bg-background shadow-sm hover:bg-emerald-600 hover:text-white',
 			},
 			size: {
 				default: 'h-9 px-4 py-2',
@@ -32,15 +33,31 @@ const buttonVariants = cva(
 )
 
 const Button = React.forwardRef(
-	({ className, variant, size, onClick, asChild = false, ...props }, ref) => {
+	(
+		{
+			loading,
+			diabled,
+			className,
+			variant,
+			size,
+			onClick,
+			asChild = false,
+			children,
+			...props
+		},
+		ref
+	) => {
 		const Comp = asChild ? Slot : 'button'
 		return (
 			<Comp
+				disabled={diabled || loading}
 				onClick={onClick}
 				className={cn(buttonVariants({ variant, size, className }))}
 				ref={ref}
 				{...props}
-			/>
+			>
+				{!loading ? children : <Loader2 className=' h-4 w-4 animate-spin' />}
+			</Comp>
 		)
 	}
 )

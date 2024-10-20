@@ -1,4 +1,4 @@
-import { prisma } from '../../../../prisma/prisma-client'
+import { prisma } from '../../prisma/prisma-client'
 
 export async function getRandomCategoryId() {
 	const categories = await prisma.category.findMany({

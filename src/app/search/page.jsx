@@ -38,19 +38,24 @@ function SearchPage() {
 		<div className='flex md:w-[80%] rounded-2xl mt-3 custom-scrollbar md:h-screen md:overflow-y-scroll flex-col'>
 			<div className='w-full text-foreground bg-background rounded-2xl mb-20 p-8'>
 				<Link href='/'>
-					<div className='hover:bg-hover inline-block p-1 rounded-xl'>
-						<ArrowLeft width={32} height={32} />
-					</div>
-				</Link>
-				{searched ? (
-					<>
+					<div className='flex items-center align-middle justify-start gap-3'>
+						<ArrowLeft
+							className='hover:bg-hover inline-block p-1 rounded-xl'
+							width={32}
+							height={32}
+						/>
+
 						<Title
 							size='large'
-							color='black'
+							color='Green'
 							className='font-semibold my-4 text-foreground'
 						>
 							Результаты поиска
 						</Title>
+					</div>
+				</Link>
+				{searched ? (
+					<>
 						{loading ? (
 							<div className='flex justify-center'>
 								<Loader className='w-8' />

@@ -35,6 +35,8 @@ html {
 
 		--gram: #363636;
 
+		--trashHover: #b1b1b1;
+
 		--green-title: #2a8b49;
 
 		--primary: #171717;
@@ -73,6 +75,8 @@ html {
 		--hover: #444444;
 
 		--wrapper: #0a0a0a8d;
+
+		--trashHover: #0a0a0a8d;
 
 		--search: #434343;
 
@@ -137,8 +141,6 @@ html {
 
 body {
 	background: var(--bg);
-	padding-inline: 5% !important;
-	max-width: 1650px;
 	margin: auto;
 }
 .header {
@@ -146,10 +148,8 @@ body {
 }
 @media screen and (max-width: 768px) {
 	body {
-		padding-inline: 0% !important;
 	}
 	.header {
-		margin-inline: 0%;
 	}
 }
 
@@ -194,4 +194,8 @@ body {
 		transition-duration: 300ms;
 		transition-timing-function: ease-in-out;
 	}
+}
+
+main {
+	transition: transform 0.1s ease-in-out;
 }

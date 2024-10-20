@@ -9,8 +9,9 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import useScrollToTopOnResize from '@/components/shared/hooks/use-scroll-to-top-on-resize'
 import { CartButton } from '@/components/cart'
+import { CartDrawer } from '@/components/cart/cart-drawer'
 
-function HeaderLayout({ searchBar, themeButton, signUpButton }) {
+function HeaderLayout({ cartDrawer, searchBar, themeButton, signUpButton }) {
 	useScrollToTopOnResize(768)
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -53,9 +54,7 @@ function HeaderLayout({ searchBar, themeButton, signUpButton }) {
 			<div className='hidden md:flex justify-center items-center gap-2'>
 				{themeButton}
 				{signUpButton}
-				<div className='flex items-center gap-3'>
-					<CartButton />
-				</div>
+				<div className='flex items-center gap-3'>{cartDrawer}</div>
 			</div>
 
 			{isMenuOpen && (
@@ -68,7 +67,7 @@ function HeaderLayout({ searchBar, themeButton, signUpButton }) {
 				>
 					<div className='flex flex-col items-center gap-2'>
 						{signUpButton}
-						{cartButton}
+						{cartDrawer}
 						{themeButton}
 					</div>
 				</motion.div>

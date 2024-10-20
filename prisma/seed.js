@@ -34,6 +34,36 @@ async function up() {
 	await prisma.productsInRecipe.createMany({
 		data: productsInRecipeData,
 	})
+	await prisma.cart.createMany({
+		data: [
+			{
+				userId: 1,
+				totalAmount: 0,
+				token: '1111',
+			},
+			{
+				userId: 2,
+				totalAmount: 0,
+				token: '22222',
+			},
+		],
+	})
+	await prisma.cartItem.createMany({
+		data: [
+			{
+				productId: 1,
+				cartId: 1,
+				userId: 1,
+				quantity: 1,
+			},
+			{
+				productId: 40,
+				cartId: 1,
+				userId: 1,
+				quantity: 4,
+			},
+		],
+	})
 }
 
 console.log('Созданы!...')
