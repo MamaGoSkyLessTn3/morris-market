@@ -10,12 +10,14 @@ import AddModalButton from './add-modal-button'
 import { useCartStore } from '@/store/cart'
 import toast from 'react-hot-toast'
 import { shallow } from 'zustand/shallow'
+import { useCart } from '../shared/hooks/useCart'
 
 function ChooseProductModal({ product, additionalProducts = [] }) {
 	const router = useRouter()
 
+	const loading = useStore(useCartStore, state => state.loading)
+
 	const addCartItem = useCartStore(state => state.addCartItem)
-	const loading = useStore(useCartStore, state => state.loading, shallow)
 
 	const onAddProduct = async productId => {
 		try {

@@ -33,7 +33,11 @@ export const CartItem = ({
 				<CartItemInfo name={name} description={description} />
 				<div className='flex items-center justify-between'>
 					<CountButton onClick={onClickCountButton} value={quantity} />
-					<CartItemPrice onClick={onClickRemoveButton} price={price} />
+					<CartItemPrice
+						type='trash'
+						onClick={onClickRemoveButton}
+						price={price}
+					/>
 				</div>
 			</div>
 		</div>

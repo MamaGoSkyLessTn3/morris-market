@@ -1,6 +1,6 @@
 function Footer() {
 	return (
-		<footer className='py-8 mb-20 mt-4 text-center bg-bg rounded-b-2xl shadow-md'>
+		<footer className='py-8 mb-20 mt-4 text-center bg-bg rounded-b-2xl '>
 			<div className='text-md'>
 				<p>
 					Сайт был разработан студентами: Семеновым Романом, Кадиевым Булатом,

@@ -3,7 +3,11 @@
 const nextConfig = {
 	env: {},
 	images: {
-		domains: ['web-static.samokat.ru', 'cm.samokat.ru'],
+		domains: [
+			'web-static.samokat.ru',
+			'cm.samokat.ru',
+			'dodopizza.azureedge.net',
+		],
 	},
 }
 

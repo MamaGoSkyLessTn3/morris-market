@@ -2,6 +2,7 @@ import { Product } from '@/components/shared/ui'
 
 function ProductsAll({ products }) {
 	return (
+		// СДЕЛАТЬ ЗПРОСОМ ДАННЫЕ А НЕ ПО ДАУНСКИ
 		<>
 			<div className='flex gap-10 justify-center md:justify-start md:gap-5 flex-wrap'>
 				{products?.length > 0 ? (

@@ -1,9 +1,6 @@
 import { Nunito } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
-import { Header } from '@/components/header'
-import { SideBar } from '@/components/sidebar'
-import { Container } from '@/components/shared/ui/container'
 
 const nunito = Nunito({
 	subsets: ['cyrillic'],
@@ -11,35 +8,15 @@ const nunito = Nunito({
 	weight: ['400', '500', '600', '700', '800', '900'],
 })
 
-export const metadata = {
-	title: 'Моррис Маркет',
-	description: 'Best market in the world',
-}
-
-export default function RootLayout({ children, modal }) {
+export default function AppLayout({ children, modal }) {
 	return (
 		<html lang='en' suppressContentEditableWarning>
 			<body className={nunito.variable}>
 				<Providers>
-					<PageLayout header={<Header />} sidebar={<SideBar />}>
-						{children}
-						{modal}
-					</PageLayout>
+					{children}
+					{modal}
 				</Providers>
 			</body>
 		</html>
-	)
-}
-function PageLayout({ header, children, sidebar }) {
-	return (
-		<>
-			<Container>
-				{header}
-				<main className='flex justify-between gap-4 flex-col md:flex-row overflow-hidden '>
-					{sidebar}
-					{children}
-				</main>
-			</Container>
-		</>
 	)
 }

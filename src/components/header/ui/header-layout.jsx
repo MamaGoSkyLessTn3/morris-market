@@ -11,7 +11,15 @@ import useScrollToTopOnResize from '@/components/shared/hooks/use-scroll-to-top-
 import { CartButton } from '@/components/cart'
 import { CartDrawer } from '@/components/cart/cart-drawer'
 
-function HeaderLayout({ cartDrawer, searchBar, themeButton, signUpButton }) {
+function HeaderLayout({
+	cartDrawer,
+	searchBar,
+	themeButton,
+	signUpButton,
+	className,
+	hasSearch,
+	hasCart,
+}) {
 	useScrollToTopOnResize(768)
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -28,7 +36,8 @@ function HeaderLayout({ cartDrawer, searchBar, themeButton, signUpButton }) {
 		<header
 			className={clsx(
 				!isMenuOpen && 'rounded-bl-3xl rounded-br-3xl',
-				'bg-background flex justify-between items-center gap-1 z-30 fixed top-0 left-0 right-0 md:relative px-4'
+				'bg-background flex justify-between items-center gap-1 z-30 fixed top-0 left-0 right-0 md:relative px-4',
+				className
 			)}
 		>
 			<Link href='/'>
@@ -41,7 +50,7 @@ function HeaderLayout({ cartDrawer, searchBar, themeButton, signUpButton }) {
 					alt='logo'
 				/>
 			</Link>
-			<div className='mx-10 flex-1'> {searchBar}</div>
+			<div className='mx-10 flex-1'> {hasSearch && searchBar}</div>
 			<div className='flex md:hidden'>
 				<button
 					className='text-gray-700 p-2 focus:outline-none'
@@ -54,7 +63,7 @@ function HeaderLayout({ cartDrawer, searchBar, themeButton, signUpButton }) {
 			<div className='hidden md:flex justify-center items-center gap-2'>
 				{themeButton}
 				{signUpButton}
-				<div className='flex items-center gap-3'>{cartDrawer}</div>
+				<div className='flex items-center gap-3'>{hasCart && cartDrawer}</div>
 			</div>
 
 			{isMenuOpen && (

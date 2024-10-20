@@ -1,54 +1,48 @@
 'use client'
-import { memo, useCallback, useEffect } from 'react'
+import { memo, useCallback, useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import {
 	Sheet,
+	SheetClose,
 	SheetContent,
 	SheetFooter,
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet'
-import { ArrowRight } from 'lucide-react'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useCartStore } from '@/store/cart'
 import { useStore } from 'zustand'
 import { CartItem } from './cart-item'
 import { Loader } from '../shared/ui'
 import Image from 'next/image'
+import Title from '../ui/title'
+import { cn } from '@/lib/utils'
+import Link from 'next/link'
+import { useCart } from '../shared/hooks/useCart'
 
 export const CartDrawer = memo(({ children }) => {
-	const items = useStore(useCartStore, state => state.items)
-	const totalAmount = useStore(useCartStore, state => state.totalAmount)
-	const loading = useStore(useCartStore, state => state.loading) // Добавлено
-	const getCartItems = useStore(useCartStore, state => state.getCartItems)
-	const updateItemQuantity = useStore(
-		useCartStore,
-		state => state.updateItemQuantity
-	)
-	const removeCartItem = useStore(useCartStore, state => state.removeCartItem)
-
-	const memoizedGetCartItems = useCallback(() => {
-		getCartItems()
-	}, [getCartItems])
-
-	useEffect(() => {
-		memoizedGetCartItems()
-	}, [memoizedGetCartItems])
-
+	const { totalAmount, updateItemQuantity, items, removeCartItem, loading } =
+		useCart()
+	const [redirecting, setRedirecting] = useState(false)
 	const onClickCountButton = (id, quantity, type) => {
 		const newQuantity =
-			type === 'plus' ? quantity + 1 : Math.max(quantity - 1, 1) // Минимум 1
+			type === 'plus' ? quantity + 1 : Math.max(quantity - 1, 1)
 		updateItemQuantity(id, newQuantity)
 	}
 
 	const onClickRemoveCartButton = async id => {
 		await removeCartItem(id)
 	}
-
 	return (
 		<Sheet>
 			<SheetTrigger asChild>{children}</SheetTrigger>
-			<SheetContent className='flex fixed flex-col justify-between pb-0 bg-background'>
+			<SheetContent
+				className={cn('flex fixed flex-col pb-0 bg-background', {
+					'justify-between': totalAmount > 0,
+					'justify-center': totalAmount === 0,
+				})}
+			>
 				<div>
 					{totalAmount > 0 && (
 						<SheetHeader>
@@ -60,13 +54,31 @@ export const CartDrawer = memo(({ children }) => {
 					)}
 
 					{!totalAmount && (
-						<div className='w-full h-full flex justify-center items-center'>
+						<div className='mx-auto flex-col w-72 flex justify-center align-middle items-center '>
 							<Image
-								src='/src/public/assets/icons/cart-empty.svg'
+								src='/assets/cart-empty.png'
 								alt='empty-cart'
-								width={120}
-								height={120}
+								width={240}
+								height={240}
 							/>
+							<Title
+								size='extraLagre'
+								className='text-center text-foreground font-bold '
+							>
+								Корзина пуста
+							</Title>
+							<p className='text-center text-gray-400 mb-5'>
+								Добавьте хотябы один товар чтобы оформить заказ
+							</p>
+							<SheetClose>
+								<Button
+									size='lg'
+									className='w-56 flex justify-center items-center align-middle h-12 text-base'
+								>
+									<ArrowLeft className='w-6 mr-2' />
+									Вернуться назад
+								</Button>
+							</SheetClose>
 						</div>
 					)}
 
@@ -79,7 +91,7 @@ export const CartDrawer = memo(({ children }) => {
 										id={item.id}
 										name={item.name}
 										price={item.price}
-										disabled={item.disabled || loading} // Отключаем кнопки при загрузке
+										disabled={item.disabled || loading}
 										quantity={item.quantity}
 										imageUrl={item.imageUrl}
 										description={item.description}
@@ -104,10 +116,16 @@ export const CartDrawer = memo(({ children }) => {
 
 								<span className='text-lg font-bold'>{totalAmount} ₽</span>
 							</div>
-							<Button className='w-full flex flex-row align-middle items-center justify-center h-12 text-base'>
-								Оформить заказ
-								<ArrowRight className='w-5 ml-2' />
-							</Button>
+							<Link href='/checkout'>
+								<Button
+									onClick={() => setRedirecting(true)}
+									loading={redirecting}
+									className='w-full flex flex-row align-middle items-center justify-center h-12 text-base'
+								>
+									Оформить заказ
+									<ArrowRight className='w-5 ml-2' />
+								</Button>
+							</Link>
 						</div>
 					</SheetFooter>
 				)}
