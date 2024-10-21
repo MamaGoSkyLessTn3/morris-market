@@ -68,17 +68,11 @@ function ProfileForm({ data }) {
 							label='Полное имя'
 							required
 						/>
-						<FormInput
-							type='password'
-							name='password'
-							label='Новый пароль'
-							required
-						/>
+						<FormInput type='password' name='password' label='Новый пароль' />
 						<FormInput
 							type='password'
 							name='confirmPassword'
 							label='Повторите пароль'
-							required
 						/>
 						<Button
 							size='lg'
