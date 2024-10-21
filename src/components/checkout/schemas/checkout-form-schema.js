@@ -12,7 +12,7 @@ export const checkoutFormSchema = z
 			message: 'Пожалуйста, введите корректный адрес электронной почты',
 		}),
 		phone: z
-			.number({ invalid_type_error: 'Телефон должен содержать только цифры' })
+			.string()
 			.min(10, { message: 'Телефон должен содержать не менее 3-х символов' }),
 		address: z
 			.string()

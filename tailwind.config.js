@@ -19,6 +19,7 @@ module.exports = {
 				search: 'var(--search)',
 				hover: 'var(--hover)',
 				trashHover: 'var(--trashHover)',
+				loader: 'var(--loader)',
 				card: {
 					DEFAULT: 'var(--card)',
 					foreground: 'var(--card-foreground)',

@@ -14,6 +14,7 @@ export default function AppLayout({ children, modal }) {
 			<body className={nunito.variable}>
 				<Providers>
 					{children}
+
 					{modal}
 				</Providers>
 			</body>

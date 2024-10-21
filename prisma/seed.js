@@ -1,5 +1,4 @@
 const {
-	userData,
 	categoryData,
 	recipeData,
 	recipeProcessData,
@@ -7,17 +6,31 @@ const {
 	productData,
 } = require('./data.js')
 const { PrismaClient } = require('@prisma/client')
+const bcrypt = require('bcrypt')
 
 const prisma = new PrismaClient()
+
 // Функция для генерации случайных чисел
 const randomNumber = (min, max) => {
 	return Math.floor(Math.random() * (max - min) + min)
 }
 
 async function up() {
+	// Хешируем пароль
+	const hashedPassword = bcrypt.hashSync('111111', 10)
+
 	await prisma.user.createMany({
-		data: userData,
+		data: [
+			{
+				fullName: 'user test',
+				email: 'Xv4Qz@example.com',
+				password: hashedPassword, // Используем захешированный пароль
+				role: 'USER',
+				verified: new Date(),
+			},
+		],
 	})
+
 	await prisma.category.createMany({
 		data: categoryData,
 	})
@@ -37,12 +50,10 @@ async function up() {
 	await prisma.cart.createMany({
 		data: [
 			{
-				userId: 1,
 				totalAmount: 0,
 				token: '1111',
 			},
 			{
-				userId: 2,
 				totalAmount: 0,
 				token: '22222',
 			},
@@ -53,13 +64,11 @@ async function up() {
 			{
 				productId: 1,
 				cartId: 1,
-				userId: 1,
 				quantity: 1,
 			},
 			{
 				productId: 40,
 				cartId: 1,
-				userId: 1,
 				quantity: 4,
 			},
 		],

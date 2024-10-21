@@ -7,6 +7,9 @@ const nextConfig = {
 			'web-static.samokat.ru',
 			'cm.samokat.ru',
 			'dodopizza.azureedge.net',
+			'github.githubassets.com',
+			'svgrepo.com',
+			'upload.wikimedia.org',
 		],
 	},
 }

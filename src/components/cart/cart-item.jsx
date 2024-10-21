@@ -23,7 +23,7 @@ export const CartItem = ({
 		<div
 			id={id}
 			className={cn(
-				'flex bg-search justify-around h-40 p-5 gap-7 my-5 m-3 rounded-3xl',
+				'flex bg-search justify-around h-40 p-5 gap-5 my-5 m-3 rounded-3xl',
 				{ 'opacity-50 pointer-events-none': disabled },
 				className
 			)}

@@ -1,6 +1,6 @@
+import { Product } from '@/components/shared/ui'
 import Title from '@/components/ui/title'
 import React from 'react'
-import { Product } from '../shared/ui'
 
 function AdditionalProdutsModal({ additionalProducts }) {
 	return (

@@ -4,13 +4,11 @@ import React from 'react'
 import { useRouter } from 'next/navigation'
 import { useStore } from 'zustand'
 import AdditionalProdutsModal from './additional-products-modal'
-import ProductInfoModal from './product-info-modal'
 import ImageModal from './image-modal'
 import AddModalButton from './add-modal-button'
 import { useCartStore } from '@/store/cart'
 import toast from 'react-hot-toast'
-import { shallow } from 'zustand/shallow'
-import { useCart } from '../shared/hooks/useCart'
+import ProductInfoModal from './product-info-modal'
 
 function ChooseProductModal({ product, additionalProducts = [] }) {
 	const router = useRouter()
@@ -38,7 +36,7 @@ function ChooseProductModal({ product, additionalProducts = [] }) {
 			className='w-full h-full'
 			onOpenChange={() => router.back()}
 		>
-			<DialogContent className=' rounded-3xl w-full h-[80%] bg-background overflow-hidden flex flex-row p-4'>
+			<DialogContent className=' rounded-3xl w-full md:w-[90%] lg:w-[80%] h-[80%] bg-background overflow-hidden flex flex-row p-4'>
 				<DialogTitle className='hidden'>{product.name}</DialogTitle>
 				<div className='w-1/2 flex flex-col items-center justify-start overflow-y-scroll custom-scrollbar h-full'>
 					<ImageModal product={product} />

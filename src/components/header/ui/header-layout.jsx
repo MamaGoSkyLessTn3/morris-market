@@ -15,7 +15,7 @@ function HeaderLayout({
 	cartDrawer,
 	searchBar,
 	themeButton,
-	signUpButton,
+	profileButton,
 	className,
 	hasSearch,
 	hasCart,
@@ -62,7 +62,7 @@ function HeaderLayout({
 
 			<div className='hidden md:flex justify-center items-center gap-2'>
 				{themeButton}
-				{signUpButton}
+				{profileButton}
 				<div className='flex items-center gap-3'>{hasCart && cartDrawer}</div>
 			</div>
 

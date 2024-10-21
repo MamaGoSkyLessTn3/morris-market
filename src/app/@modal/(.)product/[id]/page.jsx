@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { prisma } from '../../../../../prisma/prisma-client'
-import ChooseProductModal from '@/components/modals/choose-product-modal'
+import ChooseProductModal from '@/components/modals/product-modal/choose-product-modal'
 import { getRandomCategoryId } from '@/lib/getRandomCategoryId'
 
 export default async function ProductModalPage({ params }) {

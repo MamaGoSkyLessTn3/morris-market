@@ -20,6 +20,7 @@ import Title from '../ui/title'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { useCart } from '../shared/hooks/useCart'
+import CartisEmpty from '../shared/ui/cart-is-empty'
 
 export const CartDrawer = memo(({ children }) => {
 	const { totalAmount, updateItemQuantity, items, removeCartItem, loading } =
@@ -43,7 +44,7 @@ export const CartDrawer = memo(({ children }) => {
 					'justify-center': totalAmount === 0,
 				})}
 			>
-				<div>
+				<>
 					{totalAmount > 0 && (
 						<SheetHeader>
 							<SheetTitle>
@@ -54,22 +55,8 @@ export const CartDrawer = memo(({ children }) => {
 					)}
 
 					{!totalAmount && (
-						<div className='mx-auto flex-col w-72 flex justify-center align-middle items-center '>
-							<Image
-								src='/assets/cart-empty.png'
-								alt='empty-cart'
-								width={240}
-								height={240}
-							/>
-							<Title
-								size='extraLagre'
-								className='text-center text-foreground font-bold '
-							>
-								Корзина пуста
-							</Title>
-							<p className='text-center text-gray-400 mb-5'>
-								Добавьте хотябы один товар чтобы оформить заказ
-							</p>
+						<CartisEmpty>
+							{' '}
 							<SheetClose>
 								<Button
 									size='lg'
@@ -79,7 +66,7 @@ export const CartDrawer = memo(({ children }) => {
 									Вернуться назад
 								</Button>
 							</SheetClose>
-						</div>
+						</CartisEmpty>
 					)}
 
 					{totalAmount > 0 && (
@@ -104,7 +91,7 @@ export const CartDrawer = memo(({ children }) => {
 							</div>
 						</>
 					)}
-				</div>
+				</>
 				{totalAmount > 0 && (
 					<SheetFooter className='-mx-6 bg-search p-5'>
 						<div className='w-full'>

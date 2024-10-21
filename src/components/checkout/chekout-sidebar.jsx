@@ -3,21 +3,39 @@ import WhiteBlock from '../shared/ui/white-block'
 import CheckoutItemDetails from './chekout-item-details'
 import { ArrowRight, Package, Percent, Truck } from 'lucide-react'
 import { Button } from '../ui/button'
-import { randomNumber } from '@/lib/random-nimber'
+import { Skeleton } from '../ui/skeleton'
+import {
+	calcCheckoutBarTotalPrice,
+	DELIVERY_PRICE,
+	VAT,
+} from '@/lib/calc-checkout-bar-price'
 
-const VAT = 15
-const DELIVERY_PRICE = 429
+9
 
-function CheckoutSideBar({ totalAmount }) {
-	const vatPrice = (totalAmount * VAT) / 100
-	const totalPrice = totalAmount + vatPrice + DELIVERY_PRICE
+function CheckoutSideBar({ totalAmount, loading }) {
+	const { totalPrice, vatPrice } = calcCheckoutBarTotalPrice(
+		totalAmount,
+		VAT,
+		DELIVERY_PRICE
+	)
 	return (
 		<div className='w-[450px]'>
 			<WhiteBlock className='p-6 sticky top-5'>
 				<div className='flex flex-col gap-1'>
 					<span className='text-xl'>Итого:</span>
-					<span className='text-[32px] font-extrabold'>{totalPrice} ₽</span>
+					{loading ? (
+						<Skeleton className='w-full h-[38px] bg-hover' />
+					) : totalAmount === 0 ? (
+						<span className='text-[32px] h-[38px] font-extrabold'>
+							Корзина пуста
+						</span>
+					) : (
+						<span className='text-[32px] h-[38px] font-extrabold'>
+							{totalPrice} ₽
+						</span>
+					)}
 				</div>
+
 				<CheckoutItemDetails
 					title={
 						<>
@@ -25,8 +43,15 @@ function CheckoutSideBar({ totalAmount }) {
 							Стоимость корзины:
 						</>
 					}
-					amount={totalAmount}
+					amount={
+						loading ? (
+							<Skeleton className='h-7 w-[60px] bg-hover' />
+						) : (
+							`${totalAmount} ₽`
+						)
+					}
 				/>
+
 				<CheckoutItemDetails
 					title={
 						<>
@@ -34,8 +59,15 @@ function CheckoutSideBar({ totalAmount }) {
 							Налог:
 						</>
 					}
-					amount={vatPrice}
+					amount={
+						loading ? (
+							<Skeleton className='h-7 w-[60px] bg-hover' />
+						) : (
+							`${vatPrice} ₽`
+						)
+					}
 				/>
+
 				<CheckoutItemDetails
 					title={
 						<>
@@ -43,14 +75,21 @@ function CheckoutSideBar({ totalAmount }) {
 							Доставка:
 						</>
 					}
-					amount={DELIVERY_PRICE}
+					amount={
+						loading ? (
+							<Skeleton className='h-7 w-[60px] bg-hover' />
+						) : (
+							`${DELIVERY_PRICE} ₽`
+						)
+					}
 				/>
+
 				<Button
 					type='submit'
-					disabled=''
+					loading={loading}
 					className='w-full h-14 rounded-3xl flex justify-center items-center mt-6 text-base font-bold '
 				>
-					Перейти к оплате
+					Оформить заказ
 					<ArrowRight className='w-5 ml-2' />
 				</Button>
 			</WhiteBlock>

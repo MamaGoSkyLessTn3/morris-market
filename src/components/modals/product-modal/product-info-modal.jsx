@@ -1,5 +1,5 @@
+import Title from '@/components/ui/title'
 import React from 'react'
-import Title from '../ui/title'
 
 function ProductInfoModal({ product }) {
 	return (

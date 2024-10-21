@@ -5,14 +5,13 @@ import { useFormContext } from 'react-hook-form'
 import ErrorText from './error-text'
 import ClearButton from './clear-button'
 
-function FormInput({ className, name, label, required, ...props }) {
+function FormInput({ className, type, name, label, required, ...props }) {
 	const {
 		register,
 		formState: { errors },
 		watch,
 		setValue,
 	} = useFormContext()
-
 	const value = watch(name)
 	const errorText = errors[name]?.message
 
@@ -30,7 +29,7 @@ function FormInput({ className, name, label, required, ...props }) {
 				<Input
 					{...props}
 					{...register(name)}
-					type='text'
+					type={type}
 					className='h-12 text-md'
 				/>
 				{value && <ClearButton onClick={onClickClear} />}

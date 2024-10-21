@@ -20,6 +20,8 @@ html {
 
 		--hover: #ededed;
 
+		--loader: #aaaaaa;
+
 		--background: #ffffff;
 		--foreground: #0a0a0a;
 
@@ -67,6 +69,8 @@ html {
 		--bg: #1d1d1d;
 
 		--hover: #444444;
+
+		--loader: #2e2e2e;
 
 		--wrapper: #0a0a0a8d;
 

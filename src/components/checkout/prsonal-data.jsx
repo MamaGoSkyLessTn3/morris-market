@@ -2,9 +2,9 @@ import React from 'react'
 import FormInput from '@/components/checkout/form-components/form-input'
 import WhiteBlock from '../shared/ui/white-block'
 
-function PresonalData() {
+function PresonalData({ className }) {
 	return (
-		<WhiteBlock title='2. Персональные данные'>
+		<WhiteBlock title='2. Персональные данные' className={className}>
 			<div className='grid grid-cols-2 gap-5'>
 				<FormInput name='firstName' className='text-base ' placeholder='Имя' />
 				<FormInput
